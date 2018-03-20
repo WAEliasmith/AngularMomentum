@@ -13,6 +13,13 @@ abstract class RigidBody{
     }
     
     void display(){
+        fill(colour);
+        pushMatrix();
+        translate(position.x,position.y,position.z);
+        rotateX(PI/4);
+        rotateY(PI/4);
+        box(100);
+        popMatrix();
     }
     
     
