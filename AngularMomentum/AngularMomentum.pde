@@ -1,22 +1,27 @@
 RigidBody cube;
 RigidBody cube2;
-void setup(){
-    size(800,600,P3D);
-    cube = new Cube(color(255,255,255),new PVector(400, 300, -400));
-    cube2 = new Cube(color(255,1,255),new PVector(0, 100, 0));
+void setup() {
+    size(800, 600, P3D);
+    cube = new Cube(color(255, 255, 255), new PVector(400, 300, -400), 500);
+    cube2 = new Cube(color(255, 1, 255), new PVector(0, 100, 0), 80);
+    cube2.velocity.x = 4;
 }
-int t = 0;
-int r = 0;
-void draw(){
-    clear();
-    if (t == 0){cube2.velocity.x = 4;}
-    t += 1;
-    r = int(sqrt(sq(cube2.position.x-cube.position.x)+sq(cube2.position.y-cube.position.y)+sq(cube2.position.z-cube.position.z)));
-    cube2.netforce.x = -int((10000*10000)/sq(r))/(cube.position.y-cube2.position.y)/(cube.position.z-cube2.position.z);
-    cube2.netforce.y = -int((10000*10000)/sq(r))/(cube.position.x-cube2.position.x)/(cube.position.z-cube2.position.z);
-    cube2.netforce.z = -int((10000*10000)/sq(r))/(cube.position.y-cube2.position.y)/(cube.position.x-cube2.position.x);
 
+float GRAVITATIONAL_CONSTANT = 1;
+float d;
+float m;
+void draw() {
+    background(0);
+    d = dist(cube.position.x, cube.position.y, cube.position.z, cube2.position.x, cube2.position.y, cube2.position.z);
+    println(d);
+    m = (cube.mass * cube2.mass);
+    cube2.netforceMagnitude = GRAVITATIONAL_CONSTANT * m/sq(d);
+    float xDiff = cube.position.x - cube2.position.x;
+    float yDiff = cube.position.y - cube2.position.y;
+    float zDiff = cube.position.z - cube2.position.z;
+    cube2.netforce = new PVector(xDiff, yDiff, zDiff).normalize().mult(GRAVITATIONAL_CONSTANT * m/sq(d));
     
+
     cube.display();
     cube2.move();
     cube2.display();
