@@ -1,3 +1,6 @@
+//http://www.bzarg.com/p/3d-rotational-dynamics-1-the-basics/
+//http://ai.stanford.edu/~varung/rigidbody.pdf
+//https://en.wikipedia.org/wiki/Euler%27s_equations_(rigid_body_dynamics)
 RigidBody cube;
 RigidBody cube2;
 void setup() {

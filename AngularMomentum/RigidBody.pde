@@ -2,7 +2,8 @@ abstract class RigidBody {
     PVector position;
     PVector velocity; // Velocity
     PVector netforce;
-    PVector spin;
+    PVector angularVelocity;
+    PVector angularAcceleration;
     PVector orientation;
     int mass;
     float netforceMagnitude;
@@ -11,18 +12,25 @@ abstract class RigidBody {
 
     RigidBody(color shapeColour, PVector position, int mass) {
         colour = shapeColour;
-        this.position = position;
+        
+        angularAcceleration = new PVector(0, 0, 0);
         orientation = new PVector(0, 0, 0);
-        spin = new PVector(0, 0, 0);
+        angularVelocity = new PVector(0, 0, 0);
+        
+        this.position = position;
         velocity = new PVector(0, 0, 0);
         netforce = new PVector(0, 0, 0);
         this.mass = mass;
     }
 
     void move() {
-        orientation.x += spin.x;
-        orientation.y += spin.y;
-        orientation.z += spin.z;
+        angularVelocity.x += angularAcceleration.x;
+        angularVelocity.y += angularAcceleration.y;
+        angularVelocity.z += angularAcceleration.z;
+        
+        orientation.x += angularVelocity.x;
+        orientation.y += angularVelocity.y;
+        orientation.z += angularVelocity.z;
 
         velocity.x += netforce.x;
         velocity.y += netforce.y;
