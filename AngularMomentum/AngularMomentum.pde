@@ -24,6 +24,7 @@ float GRAVITATIONAL_CONSTANT = 1;
 float d;
 float m;
 void draw() {
+    lights();
     background(0);
     //d = dist(cube.position.x, cube.position.y, cube.position.z, cube2.position.x, cube2.position.y, cube2.position.z);
     //m = (cube.mass * cube2.mass);
