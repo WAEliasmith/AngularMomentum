@@ -24,7 +24,6 @@ float GRAVITATIONAL_CONSTANT = 1;
 float d;
 float m;
 void draw() {
-    lights();
     background(0);
     //d = dist(cube.position.x, cube.position.y, cube.position.z, cube2.position.x, cube2.position.y, cube2.position.z);
     //m = (cube.mass * cube2.mass);
@@ -33,15 +32,10 @@ void draw() {
     //float yDiff = cube.position.y - cube2.position.y;
     //float zDiff = cube.position.z - cube2.position.z;
     //cube2.netforce = new PVector(xDiff, yDiff, zDiff).normalize().mult(GRAVITATIONAL_CONSTANT * m/sq(d));
-
-    if (space) {
-        space = false;
-        cylinder.velocity.y += 5;
-        cylinder.angularVelocity.x += 0.5;
-    }
+   
     cylinder.display();
     cylinder.move();
-
+    
     //cube.display();
     //cube2.move();
     //cube2.display();
