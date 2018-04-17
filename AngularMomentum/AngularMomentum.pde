@@ -9,11 +9,11 @@ void setup() {
     //cube = new Cube(color(255, 255, 255), new PVector(400, 300, -400), 500);
     //cube2 = new Cube(color(255, 1, 255), new PVector(0, 100, 0), 80);
     //cube2.velocity.x = 4;
-    cylinder = new Cylinder(color(255, 1, 255), new PVector(0, 100, 0), 0, 60, 500, 500);
+    cylinder = new Cylinder(color(255, 1, 255), new PVector(0, 100, 0), 0, 30, 500, 500);
     cylinder.orientation.y = 90;
-    cylinder.velocity.y = 20;
+    cylinder.velocity.y = 15;
     cylinder.netforce.y = -0.1;
-    cylinder.angularVelocity.x = 2;
+    cylinder.angularVelocity.x = 1.5;
     cylinder.angularAcceleration.x = -0.01;
     //cube2.velocity.z = 9;
     //cube2.velocity.y = 9;
