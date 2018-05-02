@@ -15,6 +15,7 @@ void setup() {
     cylinder.orientation.y = 90;
     cylinder.velocity.y = 1;
     cylinder.netforce.y = -0.01;
+=======
     cube = new Cube(color(255, 255, 255), new PVector(400, 300, -400), 500);
     cube2 = new Cube(color(255, 1, 255), new PVector(0, 100, 0), 80);
     cube2.orientation.x = 45;
@@ -26,6 +27,7 @@ void setup() {
     //cylinder.netforce.y = -0.1;
     //cylinder.angularVelocity.x = 1.5;
     //cylinder.angularAcceleration.x = -0.01;
+>>>>>>> a9b6266f0e10cd8b21caf08ca44bf4310d24baa6
     //cube2.velocity.z = 9;
     //cube2.velocity.y = 9;
     camera(40, 20, -80.0, 40, 40, -80, 0.0, 0.0, 1.0);
@@ -57,6 +59,7 @@ void draw() {
         cylinder.velocity.y += 0.5;
         //cylinder.angularVelocity.x += 0.5*a;
     }
+<<<<<<< HEAD
     cylinder.display();
     cylinder.move();
     
@@ -65,9 +68,11 @@ void draw() {
     //cube.display();
     //cube2.move();
     //cube2.display();
+=======
     //cylinder.display()
     cube.display();
     cube.update();
     cube2.display();
     cube2.update();
+>>>>>>> a9b6266f0e10cd8b21caf08ca44bf4310d24baa6
 }
