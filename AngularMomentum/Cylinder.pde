@@ -2,26 +2,25 @@ class Cylinder extends RigidBody {
     int sides;
     float r;
     float h;
-    
+
     Cylinder(color shapeColour, PVector position, int mass, int sides, float r, float h) {
         super(shapeColour, position, mass);
         this.sides = sides;
         this.r = r;
         this.h = h;
     }
-    
-    
-    
-    void display()
-    {
+
+
+
+    void display() {
         fill(colour);
         pushMatrix();
         translate(position.x, position.y, position.z);
         rotateX(PI/180*orientation.x);
         rotateY(PI/180*orientation.y);
         rotateZ(PI/180*orientation.z);
-        
-        
+
+
         float angle = 360 / sides;
         float halfHeight = h / 2;
         // draw top shape
