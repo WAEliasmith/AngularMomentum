@@ -26,13 +26,12 @@ void setup() {
     //cylinder.angularAcceleration.x = -0.01;
     //cube2.velocity.z = 9;
     //cube2.velocity.y = 9;
-    camera(40, 20, -80.0, 40, 40, -80, 0.0, 0.0, 1.0);
 }
 
 void mouseDragged() {
     //PVector rotationalVector = new PVector(mouseX-pmouseX, mouseY-pmouseY);
-    cube.angularVelocity.x = mouseY - pmouseY;
-    cube.angularVelocity.z = mouseX - pmouseX;
+    cylinder.velocity.y = mouseY - pmouseY;
+    //cylinder.velocity.z = mouseX - pmouseX;
     //cylinder.orientation.y += mouseY - pmouseY;
 }
 
@@ -40,6 +39,7 @@ float GRAVITATIONAL_CONSTANT = 1;
 float d;
 float m;
 void draw() {
+    camera(40, 20, -90.0, 40, 40, -80, 0.0, 0.0, 1.0);
     lights();
     background(0);
     //d = dist(cube.position.x, cube.position.y, cube.position.z, cube2.position.x, cube2.position.y, cube2.position.z);
@@ -57,7 +57,7 @@ void draw() {
     }
     cylinder.display();
     cylinder.update();
-    
+
     cylinder.angularVelocity.x = cylinder.velocity.y;
 
     //cube.display();
