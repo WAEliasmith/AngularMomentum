@@ -9,6 +9,7 @@ ArrayList<Ball> balls;
 
 
 void setup() {
+    noCursor();
     //noStroke();
     balls = new ArrayList();
     size(800, 600, P3D);
@@ -44,7 +45,7 @@ float GRAVITATIONAL_CONSTANT = 1;
 float d;
 float m;
 void draw() {
-    camera(40, 20, -90.0, 40, 40, -80, 0.0, 0.0, 1.0);
+    camera(40, 20, -90.0, 40, 40, -90, 0.0, 0.0, 1.0);
     lights();
     background(0);
     //d = dist(cube.position.x, cube.position.y, cube.position.z, cube2.position.x, cube2.position.y, cube2.position.z);
@@ -60,6 +61,13 @@ void draw() {
         cylinder.velocity.y += 0.5;
         //cylinder.angularVelocity.x += 0.5*a;
     }
+    if (r) {
+        w-=1;
+        //cylinder.angularVelocity.x += 0.5*a;
+    }
+    if (f) {
+        w+=1;
+    }
     cylinder.display();
     cylinder.update();
 
@@ -73,15 +81,38 @@ void draw() {
     //cube.update();
     //cube2.display();
     //cube2.update();
+    pushMatrix();
+    fill(255, 0, 0);
+    //translate((mouseX*0.8-width*0.35), 400, (mouseY*0.8-height*0.5));
+    translate((mouseX-width/2), w, (mouseY-height/2));
+    box(10);
+    popMatrix();
+    cylinder.netforce.y = -0.01;
     for (int i = balls.size()-1; i >= 0; i--) {
         Ball entity = balls.get(i);
-        //entity.update();
 
-        //if (Ball.deleteMe) {
-        //    Ball.remove(i);
-        //}
         entity.display();
         entity.update();
         entity.friction();
+        for (int j = balls.size()-1; j >= 0; j--) {
+            if (j != i) {
+                Ball entity2 = balls.get(j);
+                if (collision(entity.position, entity2.position, 20)) {
+                    PVector temp = entity.velocity.copy();
+                    entity.velocity = entity2.velocity.copy();
+                    entity2.velocity = temp.copy();
+                    temp = entity.angularVelocity.copy();
+                    entity.angularVelocity = entity2.angularVelocity.copy();
+                    entity2.angularVelocity = temp.copy();
+                }
+            }
+        }
     }
+}
+
+boolean collision(PVector p1, PVector p2, float r) {
+    if (p1.dist(p2)<r) {
+        return true;
+    }
+    return false;
 }

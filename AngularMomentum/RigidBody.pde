@@ -50,7 +50,6 @@ abstract class RigidBody {
         rotateX(PI/180*orientation.x);
         rotateY(PI/180*orientation.y);
         rotateZ(PI/180*orientation.z);
-        println(orientation);
         box(100);
         popMatrix();
     }

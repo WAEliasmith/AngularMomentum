@@ -15,7 +15,7 @@ class Ball extends RigidBody {
         popMatrix();
     }
     void friction() {
-        velocity.mult(0.95);
-        angularVelocity.mult(0.95);
+        velocity.mult(0.98);
+        angularVelocity.mult(0.98);
     }
 }
