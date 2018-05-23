@@ -5,7 +5,12 @@ RigidBody cube;
 RigidBody cube2;
 RigidBody cylinder;
 float a = 1;
+ArrayList<Ball> balls;
+
+
 void setup() {
+    //noStroke();
+    balls = new ArrayList();
     size(800, 600, P3D);
     //cube = new Cube(color(255, 255, 255), new PVector(400, 300, -400), 500);
     //cube2 = new Cube(color(255, 1, 255), new PVector(0, 100, 0), 80);
@@ -68,4 +73,15 @@ void draw() {
     //cube.update();
     //cube2.display();
     //cube2.update();
+    for (int i = balls.size()-1; i >= 0; i--) {
+        Ball entity = balls.get(i);
+        //entity.update();
+
+        //if (Ball.deleteMe) {
+        //    Ball.remove(i);
+        //}
+        entity.display();
+        entity.update();
+        entity.friction();
+    }
 }

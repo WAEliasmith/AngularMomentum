@@ -9,7 +9,6 @@ abstract class RigidBody {
     float netforceMagnitude;
 
     color colour;
-
     RigidBody(color shapeColour, PVector position, int mass) {
         colour = shapeColour;
 
@@ -39,6 +38,8 @@ abstract class RigidBody {
         position.x += velocity.x;
         position.y += velocity.y;
         position.z += velocity.z;
+        this.netforce = new PVector();
+        this.angularAcceleration = new PVector();
     }
 
     void display() {
