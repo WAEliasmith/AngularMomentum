@@ -98,6 +98,10 @@ void draw() {
             if (j != i) {
                 Ball entity2 = balls.get(j);
                 if (collision(entity.position, entity2.position, 20)) {
+                    //PVector collisionAngle = entity.position.copy().sub(entity2.position);
+                    //float angle1 = PVector.angleBetween(entity.velocity, collisionAngle);
+                    //float angle2 = PVector.angleBetween(entity2.velocity, collisionAngle);
+                    //angle1 = PI-angle1;
                     PVector temp = entity.velocity.copy();
                     entity.velocity = entity2.velocity.copy();
                     entity2.velocity = temp.copy();
