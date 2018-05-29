@@ -6,8 +6,10 @@ void setup(){
 void draw(){
     lights();
     drawTable();
+    checkCollisions();
     updateBalls();
     drawBalls();
+    //balls[15].velocity.x -= 0.1;
     updateShootAngle();
 }
 
