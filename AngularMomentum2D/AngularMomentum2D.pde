@@ -1,6 +1,10 @@
+PVector[] positions = {};
+PVector[] vectors = {};
+
 void setup(){
     size(900, 450, P3D);
     setupBalls();
+    println(new PVector(0, 0.1).heading());
 }
 
 void draw(){
@@ -9,11 +13,36 @@ void draw(){
     checkCollisions();
     updateBalls();
     drawBalls();
-    //balls[15].velocity.x -= 0.1;
     updateShootAngle();
+    drawVectors();
+}
+
+void drawVectors(){
+    for(int i = 0; i < positions.length; i++){
+        strokeWeight(1);
+        line(positions[i].x, positions[i].y, positions[i].x + vectors[i].x, positions[i].y + vectors[i].y);
+        strokeWeight(5);
+        point(positions[i].x + vectors[i].x, positions[i].y + vectors[i].y);
+    }
+}
+
+void addVector(PVector pos, float x, float y){
+    positions = (PVector[]) append(positions, pos);
+    vectors = (PVector[]) append(vectors, new PVector(x, y));
+}
+
+void addVector(float posX, float posY, PVector vec){
+    positions = (PVector[]) append(positions, new PVector(posX, posY));
+    vectors = (PVector[]) append(vectors, vec);
+}
+
+void addVector(PVector pos, PVector vec){
+    positions = (PVector[]) append(positions, pos);
+    vectors = (PVector[]) append(vectors, vec);
 }
 
 void drawTable(){
+    strokeWeight(1);
     pushMatrix();
     fill(61, 24, 0);
     translate(0, 0, -5);
