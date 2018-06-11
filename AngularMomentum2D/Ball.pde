@@ -30,7 +30,7 @@ class Ball {
     void update() {
         velocity.add(acceleration);
         position.add(velocity);
-        velocity.mult(0.98);
+        velocity.mult(0.99);
         orientation += rotation;
         rotation *= 0.98;
         updateHeading();

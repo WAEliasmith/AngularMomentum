@@ -14,7 +14,7 @@ void draw(){
     updateBalls();
     drawBalls();
     updateShootAngle();
-    drawVectors();
+    //drawVectors();
 }
 
 void drawVectors(){
