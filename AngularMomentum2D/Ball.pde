@@ -123,6 +123,7 @@ void checkCollisions() {
                 balls[j].position.add(dist.copy().normalize().mult(-(BALL_SIZE - dist.mag())/2 + 0.01));
                 float angleI = PVector.angleBetween(balls[i].velocity, dist);//cos
                 float angleJ = PI - PVector.angleBetween(balls[j].velocity, dist);
+                println(angleI, angleJ, dist.heading(), balls[i].velocity.heading(), balls[j].velocity.heading(), dist.heading() - balls[j].velocity.heading());
                 PVector ballJParr = dist.copy().normalize().mult(balls[i].velocity.mag() * cos(angleI));
                 PVector ballIPerp = balls[i].velocity.copy().sub(ballJParr);
                 PVector ballIParr = dist.copy().normalize().mult(-balls[j].velocity.mag() * cos(angleJ));
@@ -138,6 +139,7 @@ void checkCollisions() {
                 PVector pos = balls[j].position.copy().add(dist.copy().mult(0.5));
                 addVector(pos, balls[i].velocity.copy().mult(10));
                 addVector(pos, balls[j].velocity.copy().mult(10));
+                //println(balls[i].velocity, balls[i].number);
             }
         }
         balls[i].fixToBounds();

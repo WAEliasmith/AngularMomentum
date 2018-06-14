@@ -2,9 +2,11 @@ PVector[] positions = {};
 PVector[] vectors = {};
 
 void setup(){
-    size(900, 450, P3D);
+    fullScreen(P3D);
     setupBalls();
     println(new PVector(0, 0.1).heading());
+    //whiteBall.velocity = new PVector(-18, 0.000001);
+    //whiteBall.velocity = new PVector(-18, 0);
 }
 
 void draw(){

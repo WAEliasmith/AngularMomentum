@@ -2,6 +2,7 @@ void mousePressed() {
     println("breaching mainframe");
     positions = new PVector[]{};
     vectors = new PVector[]{};
+    setupBalls();
 }
 
 float shootAngle = 0;
